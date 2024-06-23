@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "noImplicitAny": true,
+    "removeComments": true,
+    "preserveConstEnums": true,
+    "sourceMap": true
+  },
+  "files": [
+    "./src/Main.ts",
+	"./src/data.ts",
+	"./src/UI.ts",
+	"./src/utils.ts"
+  ]
+}
