@@ -33,13 +33,14 @@ module.exports = {
             raw: true,
             banner: stripIndent`
                 // ==UserScript==
-                // @name    Your lib name
+                // @name    Community Lib
                 // @namespace   https://path.com/your/lib/namespace
                 // @version 1.0.0
                 // @author  Your Name
+                // @match https://neal.fun/infinite-craft/*
                 // @description Your lib description
                 // @include https://www.example.com/*
-                // @copyright   2019, Your Org
+                // @copyright   2024, Your Org
                 // ==/UserScript==`
         })
     ]

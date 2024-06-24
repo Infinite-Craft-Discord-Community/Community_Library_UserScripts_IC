@@ -7,7 +7,7 @@ export class data
    public  expF:any=null;
   //uW=unsafeWindow must be done from userscript
 
-public addDataSource(uW:any,expF:any)
+public addDataSource(expF:any,uW:any=self)
 { 
    this.source=uW.$nuxt.$root.$children[2].$children[0].$children[0]
    this.expF=expF;
