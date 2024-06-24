@@ -17,4 +17,5 @@ export class Main
 
 
 }
-export let $a=new Main();
+export let objectSource:Main=new Main(); 
+console.log(objectSource);
