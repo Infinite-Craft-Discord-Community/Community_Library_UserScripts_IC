@@ -1,7 +1,9 @@
 
 import {ContextMenu,ActionType,ActionForm} from "./ContextMenu"
+import {MenuButton,MenuOption} from "./MenuButton"
 export class UI {
    public contextMenus:ContextMenu[]=[new ContextMenu()];
+   public MenuButtons:MenuButton[]=[];
    public defaultSettingsButtonQuery: string;
    public defaultContextMenuQuery: string = "";
    public defaultModalQuery: string = "";
