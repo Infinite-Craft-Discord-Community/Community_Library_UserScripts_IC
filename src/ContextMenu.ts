@@ -220,6 +220,10 @@ export enum ActionType {
           }
  
           conMenu.appendChild(document.createElement("br"));
+         });
+
+
+
           if(this.complexTriggerOut==false){
           conMenu.addEventListener(this.triggerTypeInvisible, (e) => {
  
@@ -240,7 +244,7 @@ export enum ActionType {
  
  
  
-       });
+     
  
  
     }}
