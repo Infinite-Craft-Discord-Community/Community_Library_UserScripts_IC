@@ -3,7 +3,7 @@ console.log(message);
 import {UI} from  "./UI"
 import {data} from  "./data"
 import {utils} from  "./utils"
-class Main
+export class Main
 {
  public $ui:UI;
  public $data:data;
@@ -17,4 +17,4 @@ class Main
 
 
 }
-let $=new Main();
+export let $a=new Main();
