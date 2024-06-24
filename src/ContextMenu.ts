@@ -38,7 +38,7 @@ export enum ActionType {
  
  export class ContextMenu {
     public triggerTypeVisible: string = "mouseover";
-    public triggerTypeInvisible: string = "mouseleft";
+    public triggerTypeInvisible: string = "mouseleave";
     public complexTriggerIn: boolean = false;
     public complexTriggerOut: boolean = false;
     public complexTriggerInCondition: any;
