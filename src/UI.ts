@@ -3,7 +3,7 @@ import {ContextMenu,ActionType,ActionForm} from "./ContextMenu"
 import {MenuButton,MenuOption} from "./MenuButton"
 export class UI {
    public contextMenus:ContextMenu[]=[new ContextMenu()];
-   public MenuButtons:MenuButton[]=[];
+   public menuButtons:MenuButton[]=[];
    public defaultSettingsButtonQuery: string;
    public defaultContextMenuQuery: string = "";
    public defaultModalQuery: string = "";
@@ -13,7 +13,11 @@ export class UI {
       this.defaultModalQuery = ".modal:nth-child(3)";
       this.defaultSettingsButtonQuery = ".settings-content";
    }
+  addAndBuildMenuButton(menuText:any,menuEmoji?:any,initAction?:any,options:MenuOption[]=[])
+  {
+    this.menuButtons.push(new MenuButton(menuText,menuEmoji,initAction,options));
 
+  }
 
    onObservingInstance(applyOnOneElement: any) {
       const instanceObserver = new MutationObserver((mutations) => {
