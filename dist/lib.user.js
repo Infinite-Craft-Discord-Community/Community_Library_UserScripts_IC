@@ -1,6 +1,7 @@
 // ==UserScript==
 // @name    Your lib name
 // @namespace   https://path.com/your/lib/namespace
+// @match https://neal.fun/infinite-craft/*
 // @version 1.0.0
 // @author  Your Name
 // @description Your lib description
@@ -14,9 +15,11 @@
 		define([], factory);
 	else if(typeof exports === 'object')
 		exports["Community"] = factory();
-	else
+
+
 		root["Community"] = factory();
 })(self, () => {
+     console.log("Factory")
 return /******/ (() => { // webpackBootstrap
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
@@ -384,7 +387,7 @@ exports.utils = utils;
 /************************************************************************/
 /******/ 	// The module cache
 /******/ 	var __webpack_module_cache__ = {};
-/******/ 	
+/******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
 /******/ 		// Check if module is in cache
@@ -398,14 +401,14 @@ exports.utils = utils;
 /******/ 			// no module.loaded needed
 /******/ 			exports: {}
 /******/ 		};
-/******/ 	
+/******/
 /******/ 		// Execute the module function
 /******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/ 	
+/******/
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
-/******/ 	
+/******/
 /************************************************************************/
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it uses a non-standard name for the exports (exports).
@@ -435,6 +438,7 @@ exports.objectSource = new Main();
 
 })();
 
+__webpack_exports__ = __webpack_exports__.objectSource;
 /******/ 	return __webpack_exports__;
 /******/ })()
 ;
