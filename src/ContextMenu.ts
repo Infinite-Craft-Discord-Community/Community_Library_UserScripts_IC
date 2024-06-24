@@ -73,7 +73,8 @@ export enum ActionType {
        minWidth: 100, xOffset: 120, xOffsetButton: 20, paddingButton: 1, duration: 1
     })
  {   if(this.complexTriggerIn==false)
-    {  item.addEventListener(this.triggerTypeVisible,()=>
+    { 
+       item.addEventListener(this.triggerTypeVisible,()=>
        this.buildContextMenuWhenVisible(item,e,options)
  
  
@@ -219,7 +220,7 @@ export enum ActionType {
           }
  
           conMenu.appendChild(document.createElement("br"));
-          if(this.complexTriggerOut===false){
+          if(this.complexTriggerOut==false){
           conMenu.addEventListener(this.triggerTypeInvisible, (e) => {
  
              setTimeout(() => {
