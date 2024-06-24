@@ -20,4 +20,3 @@ export class Main
 
 
 export let objectSource:Main=new Main(); 
-console.log(objectSource);

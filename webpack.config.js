@@ -24,7 +24,6 @@ module.exports = {
     output: {
         library: 'Community',
         libraryTarget: 'umd',
-        libraryExport: 'default', 
         path: path.resolve(__dirname, "dist"),
         filename: "lib.user.js"
     },
