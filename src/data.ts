@@ -1,12 +1,20 @@
 
-import unsafeWindow from "greasemonkey";
+import * as GM from "greasemonkey";
 //source must be initiated with unsafeWindow.$nuxt.$root.$children[2].$children[0].$children[0]
 export class data
 {
    public  source:any=null;
-   public  sourceWindow:any=null;
    public  expF:any=null;
-  
+  //uW=unsafeWindow must be done from userscript
+
+public addDataSource(uW:any,expF:any)
+{ 
+   this.source=uW.$nuxt.$root.$children[2].$children[0].$children[0]
+   this.expF=expF;
+
+}
+
+
   public getElements()
   {
    return this.source._data.elements;

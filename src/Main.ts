@@ -17,4 +17,4 @@ class Main
 
 
 }
-let $:Main=new Main();
+let $=new Main();
