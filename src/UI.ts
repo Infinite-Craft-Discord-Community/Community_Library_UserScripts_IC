@@ -1,9 +1,12 @@
 
 import {ContextMenu,ActionType,ActionForm} from "./ContextMenu"
 import {MenuButton,MenuOption} from "./MenuButton"
+import {ColorPicker} from "./ColorPicker"
 export class UI {
+
    public contextMenus:ContextMenu[]=[new ContextMenu()];
    public menuButtons:MenuButton[]=[];
+   public colorPicker:ColorPicker=new ColorPicker();
    public defaultSettingsButtonQuery: string;
    public defaultContextMenuQuery: string = "";
    public defaultModalQuery: string = "";
@@ -13,6 +16,18 @@ export class UI {
       this.defaultModalQuery = ".modal:nth-child(3)";
       this.defaultSettingsButtonQuery = ".settings-content";
    }
+
+
+  injectCSS(css:string)
+{
+   let style = document.createElement('style');
+   style.appendChild(document.createTextNode(css.trim()));
+   document.getElementsByTagName('head')[0].appendChild(style);
+
+
+}
+
+
   addAndBuildMenuButton(menuText:any,menuEmoji?:any,initAction?:any,options:MenuOption[]=[])
   {
     this.menuButtons.push(new MenuButton(menuText,menuEmoji,initAction,options));
