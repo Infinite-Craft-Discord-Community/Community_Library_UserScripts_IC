@@ -29,8 +29,9 @@ export class UI {
 
 
   addAndBuildMenuButton(menuText:any,menuEmoji?:any,initAction?:any,options:MenuOption[]=[])
-  {
-    this.menuButtons.push(new MenuButton(menuText,menuEmoji,initAction,options));
+  {     let mButton=new MenuButton(menuText,menuEmoji,initAction,options)
+    this.menuButtons.push(mButton);
+    return  mButton.buildButton();
 
   }
 

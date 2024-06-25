@@ -107,7 +107,7 @@ buildButton(otherParent?:string)
 
  parentDiv.appendChild(buttonDiv);
  this.initAction();
-
+return buttonDiv;
 }
 
 
