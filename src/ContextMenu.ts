@@ -207,6 +207,7 @@ export enum ActionType {
           }else
          {
           let actionButton = document.createElement("button");
+            actionButton.style.width="100%";
             actionButton.textContent=action.emojiOn??""+action.textOn;
             if(action.initHandler)
              {
