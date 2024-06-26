@@ -111,12 +111,11 @@ export enum ActionType {
           conMenu.innerHTML = "";
           (<HTMLElement>conMenu).style.opacity = "1";
        }
- 
- 
+       (<HTMLElement>conMenu).style.height="fit-content";
        (<HTMLElement>conMenu).style.overflow = "auto";
        (<HTMLElement>conMenu).style.zIndex = zIndex.toString();
        (<HTMLElement>conMenu).style.position = "absolute";
-       (<HTMLElement>conMenu).style.height = options.height.toString() + "px";
+      // (<HTMLElement>conMenu).style.height = options.height.toString() + "px";
        (<HTMLElement>conMenu).style.minWidth = options.minWidth + "px";
        (<HTMLElement>conMenu).style.top = e.clientY.toString() + "px";
        (<HTMLElement>conMenu).style.left = (e.clientX - options.xOffset).toString() + "px";
