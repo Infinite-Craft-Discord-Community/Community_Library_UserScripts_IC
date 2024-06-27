@@ -18,7 +18,7 @@ export class MenuButton
  options:MenuOption[]=[];
  hidden:boolean=true;
  public buttonClass:string="setting";
- public initAction:()=>void=()=>{};
+ public initAction:()=>number=()=>{return 0;};
  
 setOptions(options:MenuOption[])
 {
@@ -46,6 +46,7 @@ buildButton(otherParent?:string)
  let parentDiv=document.querySelector(otherParent??this.parentQuery);
  let buttonDiv=document.createElement("div");
  buttonDiv.classList.add("menu-button");
+ buttonDiv.appendChild(document.createTextNode(this.menuText+" "+this.menuEmoji??""));
  buttonDiv.style.height="fit-content";
 
 
@@ -88,10 +89,10 @@ style.appendChild(document.createTextNode(css.trim()));
 document.getElementsByTagName('head')[0].appendChild(style);
 
 
-
-
-
- 
+let indexOption=0;
+if(this.initAction)
+  indexOption=this.initAction();
+selectedP.textContent=this.options[indexOption].optionText+" "+this.options[indexOption].optionEmoji??"";
 
  this.options.forEach( (option)=>{
 
