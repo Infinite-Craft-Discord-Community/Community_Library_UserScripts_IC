@@ -213,10 +213,10 @@ export enum ActionType {
              {
                 action.initHandler(conMenu);
              }
-             actionButton.style.backgroundColor= "currentColor";
+             actionButton.style.backgroundColor= "var(--background-color)";
              actionButton.style.color= "var(--text-color)";
              actionButton.addEventListener("mousedown",()=>actionButton.style.backgroundColor=options.colorB);
-             actionButton.addEventListener("mouseup",()=>actionButton.style.backgroundColor= "currentColor");
+             actionButton.addEventListener("mouseup",()=>actionButton.style.backgroundColor= "var(--background-color)");
        
              actionButton.addEventListener("click",()=>action.handler());
  
