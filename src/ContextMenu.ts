@@ -215,8 +215,17 @@ export enum ActionType {
              }
              actionButton.style.backgroundColor= "var(--background-color)";
              actionButton.style.color= "var(--text-color)";
-             actionButton.addEventListener("mousedown",()=>actionButton.style.backgroundColor=options.colorB);
-             actionButton.addEventListener("mouseup",()=>actionButton.style.backgroundColor= "var(--background-color)");
+             actionButton.addEventListener("mousedown",()=>{
+             
+             actionButton.textContent=action.emojiOff??action.emojiOn??""+action.textOff??action.textOn;
+             
+             actionButton.style.backgroundColor=options.colorB;
+            
+         });
+             actionButton.addEventListener("mouseup",()=>{
+               actionButton.style.backgroundColor= "var(--background-color)"
+               actionButton.textContent=action.emojiOn??""+action.textOn;
+            });
        
              actionButton.addEventListener("click",()=>action.handler());
  
