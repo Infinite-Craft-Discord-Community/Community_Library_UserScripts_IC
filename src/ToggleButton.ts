@@ -139,7 +139,7 @@ document.getElementsByTagName('head')[0].appendChild(style);
 				checkboxContainer.appendChild(checkbox);
 				
 				checkbox.addEventListener("change", function() {
-					this.handler();
+					this.handler(checkbox.checked);
 				}.bind(this));
 				const slider = document.createElement("span");
 				slider.classList.add("checkbox-slider");
