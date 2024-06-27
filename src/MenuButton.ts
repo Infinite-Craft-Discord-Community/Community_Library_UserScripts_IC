@@ -16,7 +16,7 @@ export class MenuButton
  menuText:string="Click On Me";
  menuEmoji:string="";
  options:MenuOption[]=[];
- hidden:boolean=true;
+ hiddenObject:boolean=true;
  public buttonClass:string="setting";
  public initAction:()=>number=()=>{return 0;};
  
@@ -46,7 +46,7 @@ buildButton(otherParent?:string)
  let parentDiv=document.querySelector(otherParent??this.parentQuery);
  let buttonDiv=document.createElement("div");
  buttonDiv.classList.add("menu-button");
- buttonDiv.appendChild(document.createTextNode(this.menuText+" "+this.menuEmoji??""));
+ buttonDiv.appendChild(document.createTextNode(this.menuText+" "+(this.menuEmoji==null?"":this.menuEmoji)));
  buttonDiv.style.height="fit-content";
 
 
@@ -92,14 +92,16 @@ document.getElementsByTagName('head')[0].appendChild(style);
 let indexOption=0;
 if(this.initAction)
   indexOption=this.initAction();
-selectedP.textContent=this.options[indexOption].optionText+" "+this.options[indexOption].optionEmoji??"";
+
+console.log("indexOption:",indexOption,"options:",this.options);
+selectedP.textContent=this.options[indexOption].optionText+" "+(this.options[indexOption].optionEmoji==null?"":this.options[indexOption].optionEmoji);
 
  this.options.forEach( (option)=>{
 
 
   let optionDiv=document.createElement("div");
   optionDiv.classList.add("menu-button-option");
-  optionDiv.appendChild(document.createTextNode(option.optionText+" "+option.optionEmoji??""));
+  optionDiv.appendChild(document.createTextNode(option.optionText+" "+(option.optionEmoji==null?"":option.optionEmoji)));
   optionDiv.style.whiteSpace="nowrap";
   optionDiv.style.overflow="hidden";
   optionDiv.addEventListener("mouseenter",()=>{optionDiv.style.backgroundColor="gray"});
@@ -107,7 +109,7 @@ selectedP.textContent=this.options[indexOption].optionText+" "+this.options[inde
 
   optionDiv.addEventListener("click",()=>{
   option.handler();
-  selectedP.textContent=option.optionText+" "+option.optionEmoji??"";
+  selectedP.textContent=option.optionText+" "+(option.optionEmoji==null?"":option.optionEmoji);
     ;});
 
   optionsDiv.appendChild(optionDiv);
@@ -117,9 +119,11 @@ selectedP.textContent=this.options[indexOption].optionText+" "+this.options[inde
 
   selectedP.addEventListener("click",function(){
   selectionDiv.appendChild(optionsDiv);
-      this.hidden=true;
+      this.hiddenObject=true;
 
-  },false);
+
+
+  }.bind(this),false);
 
   selectionDiv.appendChild(selectedP);
   selectionDiv.appendChild(document.createElement("hr"));
@@ -127,13 +131,13 @@ selectedP.textContent=this.options[indexOption].optionText+" "+this.options[inde
 
   buttonDiv.addEventListener("click",function(){
     
-  if(this.hidden==true)
-    {
+  if(this.hiddenObject==true)
+    {    console.log("got here");
 
         if(!buttonDiv.contains(selectionDiv))
        buttonDiv.appendChild(selectionDiv);
 
-       this.hidden = false;
+       this.hiddenObject = false;
 
     }else
       {   if(selectionDiv.contains(optionsDiv))
@@ -141,15 +145,15 @@ selectedP.textContent=this.options[indexOption].optionText+" "+this.options[inde
 
          if(buttonDiv.contains(selectionDiv))
             buttonDiv.removeChild(selectionDiv);
-        this.hidden = true;
+        this.hiddenObject = true;
       }
 
 
-  },false);
+  }.bind(this),false);
 
 
  parentDiv.appendChild(buttonDiv);
- this.initAction();
+
 return buttonDiv;
 }
 
