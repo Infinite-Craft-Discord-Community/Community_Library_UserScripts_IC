@@ -216,10 +216,11 @@ export enum ActionType {
              actionButton.style.backgroundColor= "var(--background-color)";
              actionButton.style.color= "var(--text-color)";
              actionButton.addEventListener("mousedown",()=>{
-             
+            
+             actionButton.style.backgroundColor=options.colorB;
              actionButton.textContent=(action.emojiOff??action.emojiOn??"")+action.textOff??action.textOn;
              
-             actionButton.style.backgroundColor=options.colorB;
+            
             
          });
              actionButton.addEventListener("mouseup",()=>{
