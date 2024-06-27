@@ -19,7 +19,12 @@ export class UI {
       this.defaultSettingsButtonQuery = ".settings-content";
    }
 
-
+  makeToggleButton(handler?:any,color?:any,parent?:any,size?:any,innerRadius?:any,outerRadius?:any)
+  {
+   let toggleButton=new ToggleButton();
+   this.toggleButtons.push(toggleButton);
+   return toggleButton.buildButton(handler,color,parent,size,innerRadius,outerRadius)
+  }
   injectCSS(css:string)
 {
    let style = document.createElement('style');

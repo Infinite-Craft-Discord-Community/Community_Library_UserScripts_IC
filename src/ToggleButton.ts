@@ -126,7 +126,7 @@ document.getElementsByTagName('head')[0].appendChild(style);
 
 
 
-	const block = document.createElement("div");
+	        const block = document.createElement("div");
 			block.classList.add("setting-block");
 			const name = document.createElement("h1");
 			block.appendChild(name);
