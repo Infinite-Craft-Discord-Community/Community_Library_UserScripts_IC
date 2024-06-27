@@ -46,6 +46,9 @@ buildButton(otherParent?:string)
  let parentDiv=document.querySelector(otherParent??this.parentQuery);
  let buttonDiv=document.createElement("div");
  buttonDiv.classList.add("menu-button");
+ buttonDiv.style.height="fit-content";
+
+
  let selectionDiv=document.createElement("div");
  let selectedP=document.createElement("p");
  let optionsDiv=document.createElement("div");
