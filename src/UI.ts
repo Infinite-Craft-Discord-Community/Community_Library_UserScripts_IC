@@ -2,9 +2,11 @@
 import {ContextMenu,ActionType,ActionForm} from "./ContextMenu"
 import {MenuButton,MenuOption} from "./MenuButton"
 import {ColorPicker} from "./ColorPicker"
+import {ToggleButton} from "./ToggleButton";
 export class UI {
 
    public contextMenus:ContextMenu[]=[new ContextMenu()];
+   public toggleButtons:ToggleButton[]=[];
    public menuButtons:MenuButton[]=[];
    public colorPicker:ColorPicker=new ColorPicker();
    public defaultSettingsButtonQuery: string;
