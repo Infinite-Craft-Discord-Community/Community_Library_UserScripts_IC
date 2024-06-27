@@ -15,7 +15,7 @@ export class MenuButton
  public parentQuery:string=".settings-content";
  menuText:string="Click On Me";
  menuEmoji:string="";
- options:MenuOption[];
+ options:MenuOption[]=[];
  hidden:boolean=true;
  public buttonClass:string="setting";
  public initAction:()=>void=()=>{};
