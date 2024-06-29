@@ -1,4 +1,4 @@
-/ ==UserScript==
+// ==UserScript==
 // @name        Traslate script
 // @namespace   Violentmonkey Scripts
 // @match       https://neal.fun/infinite-craft/*
@@ -76,7 +76,7 @@ try {
 
                                if(node.classList.contains("instance"))
                                  {
-                                   let text= node.getAttribute("tooltip");
+
                                     let toTranslate=""
 
                                          console.log("exist",node.childNodes)
@@ -98,9 +98,14 @@ try {
                                      console.log(toTranslate)
                                      toTranslate=await make_A_call(toTranslate);
 
+
+                                   let text= node.getAttribute("tooltip");
                                      if(text==null)
                                          text="";
+                                    if(toTranslate!=null)
                                       text=text+"\n"+toTranslate;
+
+
                                       node.setAttribute("tooltip",text);
                                  }
 
