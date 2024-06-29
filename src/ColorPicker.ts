@@ -3,7 +3,7 @@ export class ColorPicker
  public  callback:any;
  public  pickedColor:string;
 
-makeColorPicker(localColback?:any)
+makeColorPicker(localColback?:any,debug:boolean=false)
 {
    if(localColback!=null)
     this.callback=localColback;
@@ -16,7 +16,7 @@ makeColorPicker(localColback?:any)
     var  isIpad = ua.indexOf("ipad") > -1;
     var  isLinux = ua.indexOf("linux") > -1;
     let parent=document.querySelector(".container");
-  if((isAndroid || isMobile || isLinux || isWebOs || isIphone || isIpad))
+  if((isAndroid || isMobile || isLinux || isWebOs || isIphone || isIpad) || debug)
     {
       
        let diag=document.createElement("dialog");
