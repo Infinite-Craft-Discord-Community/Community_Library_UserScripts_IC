@@ -3,7 +3,7 @@ export class ColorPicker
  public  callback:any;
  public  pickedColor:string;
 
-makeColorPicher(localColback?:any)
+makeColorPicker(localColback?:any)
 {
    if(localColback!=null)
     this.callback=localColback;
