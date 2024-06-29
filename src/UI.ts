@@ -2,7 +2,7 @@
 import {ContextMenu,ActionType,ActionForm} from "./ContextMenu"
 import {MenuButton,MenuOption} from "./MenuButton"
 import {ColorPicker} from "./ColorPicker"
-import {ToggleButton} from "./ToggleButton";
+import {ToggleButton,ToggleButtonOptions} from "./ToggleButton";
 export class UI {
 
    public contextMenus:ContextMenu[]=[new ContextMenu()];
@@ -19,11 +19,11 @@ export class UI {
       this.defaultSettingsButtonQuery = ".settings-content";
    }
 
-  makeToggleButton(handler?:any,color?:any,parent?:any,size?:any,innerRadius?:any,outerRadius?:any)
+  makeToggleButton(options:ToggleButtonOptions)
   {
    let toggleButton=new ToggleButton();
    this.toggleButtons.push(toggleButton);
-   return toggleButton.buildButton(handler,color,parent,size,innerRadius,outerRadius)
+   return toggleButton.buildButton(options)
   }
   injectCSS(css:string)
 {

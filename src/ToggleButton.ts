@@ -1,32 +1,55 @@
+
+export class ToggleButtonOptions
+{
+handler?:(checked:boolean)=>void;
+optionalText?:string;
+color?:string;
+parent?:any;
+size?:number;
+innerRadius?:any;
+outerRadius?:any;
+
+
+}
+
+
+
+
+
 export class ToggleButton
 {
 
 public handler:(checked:boolean,args:any)=>void;
 public color:string="#70b565";
+public optionalText:string="";
 public size:number=22;
 public innerRadius:string="50%";
 public outerRadius:string="15px";
-buildButton(handler?:any,color?:any,parent?:any,size?:any,innerRadius?:any,outerRadius?:any)
+
+
+
+
+buildButton(options:ToggleButtonOptions={})
 {
 
- if(handler!=null)
-  this.handler=handler;
+ if(options.handler!=null)
+  this.handler=options.handler;
 
-    if(color!=null)
+    if(options.color!=null)
 {
-    this.color=color;
+    this.color=options.color;
 }
-if(size!=null)
+if(options.size!=null)
     {
-        this.size=size;
+        this.size=options.size;
     }
- if(innerRadius!=null)
+ if(options.innerRadius!=null)
         {
-            this.innerRadius=innerRadius;
+            this.innerRadius=options.innerRadius;
         }
- if(outerRadius!=null)
+ if(options.outerRadius!=null)
     {
-                this.outerRadius=outerRadius;
+                this.outerRadius=options.outerRadius;
   }
  
  let css=
@@ -87,8 +110,8 @@ if(size!=null)
 .checkbox-slider:before {
 	position: absolute;
 	content: "";
-	height: ${size}px;
-	width: ${size}px;
+	height: ${this.size}px;
+	width: ${this.size}px;
 	left: 4px;
 	bottom: 4px;
 	background-color: var(--background-color);
@@ -103,7 +126,7 @@ if(size!=null)
 }
 
 input:checked + .checkbox-slider {
-	background-color: ${color};
+	background-color: ${this.color};
 }
 
 input:checked + .checkbox-slider:before {
@@ -141,8 +164,8 @@ document.getElementsByTagName('head')[0].appendChild(style);
 				checkboxContainer.appendChild(slider);
 				name.appendChild(checkboxContainer);
 
-              if(parent)
-				parent.appendChild(block);
+              if(options.parent)
+				options.parent.appendChild(block);
                 return block;
 
 			}
