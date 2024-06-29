@@ -81,7 +81,7 @@ if(size!=null)
 	-webkit-transition: 0.4s;
 	transition: 0.4s;
 	border-radius: ${this.outerRadius}px;
-	z-index: -2;
+	z-index: 2000;
 }
 
 .checkbox-slider:before {
@@ -95,7 +95,7 @@ if(size!=null)
 	-webkit-transition: 0.4s;
 	transition: 0.4s;
 	border-radius: ${this.innerRadius};
-	z-index: -1;
+	z-index: 1999;
 }
 
 .dark-mode .checkbox-slider:before {
@@ -108,11 +108,6 @@ input:checked + .checkbox-slider {
 
 input:checked + .checkbox-slider:before {
 	transform: translateX(19px);
-}
-
-.setting-block:has(input[type="checkbox"]:not(:checked)) .input-wrapper {
-	margin-top: -33px;
-	opacity: 0;
 }
 
 .input-wrapper {
