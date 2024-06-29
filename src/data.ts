@@ -96,6 +96,106 @@ const sortButtonObserver = new MutationObserver((mutations) => {
   }
   
   
+addInToolTipsAsync(callback:(text:string,emoji:string)=> Promise<string>)
+{
+  const instanceObserver = new MutationObserver( async (mutations) => {
+    for (const mutation of mutations) {
+     if (mutation.addedNodes.length > 0)
+       for (const node of Array.from(mutation.addedNodes)){
+
+                
+               if((<HTMLElement>node).classList.contains("instance"))
+                 {
+                   let text= (<HTMLElement>node).getAttribute("tooltip");
+                    let nodeText=""
+
+                         console.log("exist",node.childNodes)
+
+                     for(let n of Array.from((<HTMLElement>node).childNodes))
+                     {
+
+                       if(n.nodeType==3 && (<Text>n).length!=0)
+                         {
+                           console.log("n:",n,"node-type:",n.nodeType)
+                           nodeText+=n.textContent.trim();
+
+                         }
+
+                     }
+
+                     let  emoji=(<HTMLElement>node).querySelector(".instance-emoji");
+                     nodeText=await callback(nodeText,emoji.textContent);
+                     if(text==null)
+                         text="";
+
+                      text=text+"\n"+nodeText;
+                      (<HTMLElement>node).setAttribute("tooltip",text);
+                 }
+
+              }}
+
+
+
+
+});
+
+instanceObserver.observe(document.getElementsByClassName("instances")[0], {
+    childList: true,
+    subtree  : true,
+
+});
+
+
+}
+addInToolTips(callback:(text:string,emoji:string)=> string)
+{
+  const instanceObserver = new MutationObserver( async (mutations) => {
+    for (const mutation of mutations) {
+     if (mutation.addedNodes.length > 0)
+       for (const node of Array.from(mutation.addedNodes)){
+
+                
+               if((<HTMLElement>node).classList.contains("instance"))
+                 {
+                   let text= (<HTMLElement>node).getAttribute("tooltip");
+                    let nodeText=""
+
+                         console.log("exist",node.childNodes)
+
+                     for(let n of Array.from((<HTMLElement>node).childNodes))
+                     {
+
+                       if(n.nodeType==3 && (<Text>n).length!=0)
+                         {
+                           console.log("n:",n,"node-type:",n.nodeType)
+                           nodeText+=n.textContent.trim();
+
+                         }
+
+                     }
+
+                     let  emoji=(<HTMLElement>node).querySelector(".instance-emoji");
+                     nodeText=callback(nodeText,emoji.textContent);
+                     if(text==null)
+                         text="";
+
+                      text=text+"\n"+nodeText;
+                      (<HTMLElement>node).setAttribute("tooltip",text);
+                 }
+
+              }}
+            });
+
+            instanceObserver.observe(document.getElementsByClassName("instances")[0], {
+                childList: true,
+                subtree  : true,
+            
+            });
+            
+            
+    }
+
+
   
   constructor() {
 
