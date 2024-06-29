@@ -147,6 +147,11 @@ document.getElementsByTagName('head')[0].appendChild(style);
 	        const block = document.createElement("div");
 			block.classList.add("setting-block");
 			const name = document.createElement("h1");
+
+			if(options.optionalText!=null)
+				{
+					name.appendChild(document.createTextNode(options.optionalText));
+				}
 			block.appendChild(name);
 	
 				const checkboxContainer = document.createElement("label");
