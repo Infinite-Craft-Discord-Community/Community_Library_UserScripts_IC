@@ -6,6 +6,7 @@ import {ToggleButton,ToggleButtonOptions} from "./ToggleButton";
 export class UI {
 
    public contextMenus:ContextMenu[]=[new ContextMenu()];
+   public contextMenu:ContextMenu=this.contextMenus[0];
    public toggleButtons:ToggleButton[]=[];
    public menuButtons:MenuButton[]=[];
    public colorPicker:ColorPicker=new ColorPicker();

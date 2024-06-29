@@ -64,31 +64,80 @@ export enum ActionType {
        this.actions.push(...actions);
     }
  
+   defaultBuildItem(item:any,options: ContextMenuUiOptions)
+{
+   let timeout:any=null;
+                    (<HTMLElement>item).addEventListener("mouseover",(e:Event)=>{ //console.log("mouse over");
+       
+                     timeout = setTimeout(function(){this.buildContextMenuWhenVisible(item,{clientX:item.getBoundingClientRect().x,clientY:item.getBoundingClientRect().y},options);}.bind(this)
+       
+       
+       
+                      , 1000);});
+       
+       
+       
+                   item.addEventListener("mouseout",(e:Event)=>{ //console.log("mouse over");
+       
+                          clearTimeout(timeout);
+       
+       
+                       });
+
+
+}
+
+
+
+
+
+
+
  
- 
- 
-    buildContextMenu(item: any, e: any, options: ContextMenuUiOptions = {
-       colorB: "#54C571", height: 40, borderWidth: 2, widthButton: 50
-       , heightButton: 20, borderWidthButton: 1, radius: 4,
-       minWidth: 100, xOffset: 120, xOffsetButton: 20, paddingButton: 1, duration: 1
-    })
- {   if(this.complexTriggerIn==false)
-    { 
-       item.addEventListener(this.triggerTypeVisible,()=>
-       this.buildContextMenuWhenVisible(item,e,options)
- 
- 
-    );
-    
-    }else
-    {
- 
-     this.complexTriggerInCondition(item);
- 
-    }
-    
- }
- 
+   defaultBuild(options: ContextMenuUiOptions = {
+      colorB: "#54C571", height: 40, borderWidth: 2, widthButton: 50
+      , heightButton: 20, borderWidthButton: 1, radius: 4,
+      minWidth: 100, xOffset: 120, xOffsetButton: 20, paddingButton: 1, duration: 1
+   }, zIndex = 1000)
+   {
+      for(let item of Array.from(document.querySelectorAll(".item")))
+         {
+            this.defaultBuildItem(item,options);
+         }
+       
+         const itemsObserver = new MutationObserver( async (mutations) => {
+            for (const mutation of mutations) {
+             if (mutation.addedNodes.length > 0)
+               for (const node of Array.from(mutation.addedNodes)){
+                   
+                  if((<HTMLElement>node).classList.contains("item"))
+                            this.defaultBuildItem(node,options);
+                      
+
+                         }
+        
+                      }
+                    });
+                  
+        
+                    itemsObserver.observe(document.getElementsByClassName("item-inner")[0], {
+                        childList: true,
+                        subtree  : true,
+                    
+                    });
+
+
+   }
+
+
+
+
+
+
+
+
+
+
     buildContextMenuWhenVisible(item: any, e: any, options: ContextMenuUiOptions = {
        colorB: "#54C571", height: 40, borderWidth: 2, widthButton: 50
        , heightButton: 20, borderWidthButton: 1, radius: 4,
