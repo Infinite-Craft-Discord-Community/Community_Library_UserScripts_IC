@@ -161,7 +161,7 @@ addInToolTips(callback:(text:string,emoji:string)=> string)
   let style = document.createElement('style');
   style.appendChild(document.createTextNode(`.item.instance::before {text-align: center;}`.trim()));
   document.getElementsByTagName('head')[0].appendChild(style);
-  
+
   const instanceObserver = new MutationObserver( async (mutations) => {
     for (const mutation of mutations) {
      if (mutation.addedNodes.length > 0)
@@ -180,7 +180,7 @@ addInToolTips(callback:(text:string,emoji:string)=> string)
 
                        if(n.nodeType==3 && (<Text>n).length!=0)
                          {
-                           console.log("n:",n,"node-type:",n.nodeType)
+                          
                            nodeText+=n.textContent.trim();
 
                          }
@@ -188,7 +188,11 @@ addInToolTips(callback:(text:string,emoji:string)=> string)
                      }
 
                      let  emoji=(<HTMLElement>node).querySelector(".instance-emoji");
+                     if(emoji)
                      nodeText=callback(nodeText,emoji.textContent);
+                      else
+                      nodeText=callback(nodeText,"");
+
                      if(text==null)
                          text="";
 
