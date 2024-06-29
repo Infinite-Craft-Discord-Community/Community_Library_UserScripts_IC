@@ -97,7 +97,14 @@ const sortButtonObserver = new MutationObserver((mutations) => {
   
   
 addInToolTipsAsync(callback:(text:string,emoji:string)=> Promise<string>)
-{
+{    
+  
+  let style = document.createElement('style');
+  style.appendChild(document.createTextNode(`.item.instance::before {text-align: center;}`.trim()));
+  document.getElementsByTagName('head')[0].appendChild(style);
+
+
+
   const instanceObserver = new MutationObserver( async (mutations) => {
     for (const mutation of mutations) {
      if (mutation.addedNodes.length > 0)
@@ -149,6 +156,12 @@ instanceObserver.observe(document.getElementsByClassName("instances")[0], {
 }
 addInToolTips(callback:(text:string,emoji:string)=> string)
 {
+
+
+  let style = document.createElement('style');
+  style.appendChild(document.createTextNode(`.item.instance::before {text-align: center;}`.trim()));
+  document.getElementsByTagName('head')[0].appendChild(style);
+  
   const instanceObserver = new MutationObserver( async (mutations) => {
     for (const mutation of mutations) {
      if (mutation.addedNodes.length > 0)
