@@ -202,7 +202,7 @@ makeColorPicker(localColback?:any)
   input.addEventListener("input",function(event:any)
 {
    this.pickedColor= event.target.value;
-  this.handler(this.pickedColor);
+  this.callback(this.pickedColor);
 
    }.bind(this));
    if(parent)
