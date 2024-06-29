@@ -15,10 +15,10 @@ makeColorPicker(localColback?:any)
     var  isIphone = ua.indexOf("iphone") > -1;
     var  isIpad = ua.indexOf("ipad") > -1;
     var  isLinux = ua.indexOf("linux") > -1;
-
+    let parent=document.querySelector(".container");
   if((isAndroid || isMobile || isLinux || isWebOs || isIphone || isIpad))
     {
-       let parent=document.querySelector(".container");
+      
        let diag=document.createElement("dialog");
 
        let lr=document.createElement("label");
@@ -183,9 +183,40 @@ makeColorPicker(localColback?:any)
        diag.style.background="var(--background-color)";
        diag.style.color=("var(--text-color)").trim();
        if(parent)
-       parent.appendChild(diag);
-       diag.showModal();
+        parent.appendChild(diag);
+        diag.showModal();
+}else
+{
+
+
+  let input = document.createElement("input");
+  input.setAttribute("type", "color");
+
+  input.addEventListener("click",function(event)
+                           {event.stopPropagation();
+   });
+
+
+
+
+  input.addEventListener("input",function(event:any)
+{
+   this.pickedColor= event.target.value;
+  this.handler(this.pickedColor);
+
+   }.bind(this));
+   if(parent)
+    parent.appendChild(input);
+  // hidden=0;
+   input.click();
+ 
+
 }
+
+
+
+
+
 }
 
 
