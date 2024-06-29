@@ -111,7 +111,7 @@ export class ContextMenu {
       });
 
 
-      itemsObserver.observe(document.getElementsByClassName("item-inner")[0], {
+      itemsObserver.observe(document.getElementsByClassName("items-inner")[0], {
          childList: true,
          subtree: true,
 
