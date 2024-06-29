@@ -86,6 +86,7 @@ if(options.size!=null)
 	width: ${this.size+28}px;
 	height: ${this.size+8}px;
 	cursor: pointer;
+    margin-left:5px;
 }
 
 .checkbox-container input {
